@@ -13,14 +13,16 @@ public class Book {
   private long isbn;
   private List<String> categories;
   private long price;
+  private int stock;
 
-  public Book(String id, String title, String author, long isbn, List<String> categories, long price) {
+  public Book(String id, String title, String author, long isbn, List<String> categories, long price, int stock) {
     this.id = id;
     this.title = title;
     this.author = author;
     this.isbn = isbn;
     this.categories = new ArrayList<>(categories);
     this.price = price;
+    this.stock = stock;
   }
 
   public String getId() {
@@ -47,6 +49,11 @@ public class Book {
     return price;
   }
 
+  public int getStock() {
+    return stock;
+  }
+
+
   public void setTitle(String title) {
     this.title = title;
   }
@@ -67,6 +74,10 @@ public class Book {
     this.price = price;
   }
 
+  public void setStock(int stock) {
+    this.stock = stock;
+  }
+
   @Override
   public String toString() {
     return "Book{" +
@@ -76,6 +87,7 @@ public class Book {
             ", isbn=" + isbn +
             ", categories=" + categories +
             ", price=" + price +
+            ", stock=" + stock +
             '}';
   }
 

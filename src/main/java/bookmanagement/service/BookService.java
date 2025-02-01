@@ -3,13 +3,16 @@ package bookmanagement.service;
 import bookmanagement.domain.Book;
 import bookmanagement.exception.BookNotFoundException;
 import bookmanagement.exception.BooksAlreadyExistException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class BookService {
 
-  private List<Book> books = new ArrayList<>();
+  private final List<Book> books;
+
+  public BookService(List<Book> books) {
+    this.books = books;
+  }
 
   public void addBook(Book book) {
     boolean exists = books.stream()
@@ -48,6 +51,7 @@ public class BookService {
     existingBook.setIsbn(updatedBook.getIsbn());
     existingBook.setCategories(updatedBook.getCategories());
     existingBook.setPrice(updatedBook.getPrice());
+    existingBook.setStock(updatedBook.getStock());
 
     System.out.println("책이 성공적으로 업데이트되었습니다 : " + existingBook);
   }
